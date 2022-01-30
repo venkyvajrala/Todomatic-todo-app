@@ -1,13 +1,7 @@
 import { useRef, useEffect } from 'react';
 import React, { useState } from 'react';
 
-function usePrevious(value) {
-	const ref = useRef();
-	useEffect(() => {
-		ref.current = value;
-	});
-	return ref.current;
-}
+import { usePrevious } from '../services/usePrevious';
 export default function Todo(props) {
 	const [isEditing, setEditing] = useState(false);
 	const [newName, setNewName] = useState('');

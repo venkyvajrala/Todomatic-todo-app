@@ -4,14 +4,7 @@ import Form from './components/Form';
 import FilterButton from './components/FilterButton';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-
-function usePrevious(value) {
-	const ref = useRef();
-	useEffect(() => {
-		ref.current = value;
-	});
-	return ref.current;
-}
+import { usePrevious } from './services/usePrevious';
 
 const FILTER_MAP = {
 	All: () => true,
