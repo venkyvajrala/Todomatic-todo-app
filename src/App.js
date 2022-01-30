@@ -38,14 +38,14 @@ function App(props) {
 		));
 	const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
 	const headingText =
-		taskList.length == 0
+		taskList.length === 0
 			? 'No tasks'
 			: `${taskList.length} ${tasksNoun} remaing`;
 	const filterList = FILTER_NAMES.map((name) => (
 		<FilterButton
 			key={name}
 			name={name}
-			isPressed={name == filter}
+			isPressed={name === filter}
 			setFilter={setFilter}
 		/>
 	));
@@ -58,7 +58,7 @@ function App(props) {
 
 	function toggleTaskCompletion(id) {
 		const updatedTaskList = tasks.map((task) => {
-			if (task.id == id) {
+			if (task.id === id) {
 				return { ...task, completed: !task.completed };
 			}
 			return task;
@@ -68,13 +68,13 @@ function App(props) {
 	}
 
 	function deleteTask(id) {
-		const remainingTasks = tasks.filter((task) => task.id != id);
+		const remainingTasks = tasks.filter((task) => task.id !== id);
 		setTasks(remainingTasks);
 	}
 
 	function editTask(id, name) {
 		const updatedTasks = tasks.map((task) => {
-			if (task.id == id) {
+			if (task.id === id) {
 				return { ...task, name: name };
 			}
 			return task;
@@ -92,7 +92,6 @@ function App(props) {
 				{headingText}
 			</h2>
 			<ul
-				role='list'
 				className='todo-list stack-large stack-exception'
 				aria-labelledby='list-heading'>
 				{taskList}

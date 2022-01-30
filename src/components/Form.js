@@ -8,7 +8,7 @@ function Form(props) {
 	function handleSubmit(e) {
 		e.preventDefault();
 		console.log(name, name.length);
-		if (name.length > 0 && name.trim() != '') {
+		if (name.length > 0 && name.trim() !== '') {
 			props.addTask(name);
 			setName('');
 		}
@@ -33,7 +33,7 @@ function Form(props) {
 			<button
 				type='submit'
 				className='btn btn__primary btn__lg'
-				disabled={name.trim() == ''}>
+				disabled={name.trim() === ''}>
 				Add
 			</button>
 		</form>
